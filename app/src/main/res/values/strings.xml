@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">11Feb</string>
+    <string-array name="meals">
+        <item>Biryani</item>
+        <item>Pav Bhaji</item>
+        <item>Aloo Prantha</item>
+        <item>Veg Thali</item>
+        <item>Non Veg Thali</item>
+        <item>Manchurian</item>
+        <item>Rajma Chawal</item>
+        <item>Mix Pakora</item>
+        <item>Momos</item>
+        <item>Chaap</item>
+    </string-array>
+</resources>
