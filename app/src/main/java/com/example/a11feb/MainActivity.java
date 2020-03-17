@@ -139,12 +139,12 @@ CheckBox confirm;
 
         double totalprice1 = (finalPrice * quantity ) +(tip *finalPrice);
         double calculated_tax = totalprice1 *tax;
-        double final_Price = totalprice1 +calculated_tax;
+        double finalPrice1 = totalprice1 +calculated_tax;
 
-        Toast.makeText(getApplicationContext(), "Final Price is:" + final_Price, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Final Price is:" + finalPrice1, Toast.LENGTH_SHORT).show();
         //displaying final price in edit text
-        String finalprice = Double.toString(final_Price);
-        e2.setText(finalprice);
+        String finalcost = Double.toString(finalPrice1);
+        e2.setText(finalcost);
 
 
     }
