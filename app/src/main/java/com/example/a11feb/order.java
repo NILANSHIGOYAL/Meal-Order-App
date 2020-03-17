@@ -1,3 +1,5 @@
+package com.example.a11feb;
+
 public class order {
     private long orderId;
     private String meal_name;
@@ -7,7 +9,7 @@ public class order {
     private double tax;
     private double cost;
 
-    public order(long orderId,String meal_name, int price, int quantity, double tip, double cost,double tax){
+    public order(long orderId, String meal_name, int price, int quantity, double tip, double cost, double tax){
         this.orderId =orderId;
         this.meal_name=meal_name;
         this.price=price;
