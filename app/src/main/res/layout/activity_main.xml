@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.365" />
 
     <RadioGroup
-        android:id="@+id/radioSex"
+        android:id="@+id/radioGroup"
         android:layout_width="198dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"

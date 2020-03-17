@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ SeekBar seekbar;
 RadioButton r1,r2,r3;
 Button calculate1,submit1;
 CheckBox confirm;
+RadioGroup rg;
     int pval =0 ;
 
     @Override
@@ -42,6 +44,7 @@ CheckBox confirm;
         calculate1 = (Button) findViewById(R.id.button);
         submit1 = (Button) findViewById(R.id.button2);
         confirm = (CheckBox) findViewById(R.id.checkBox);
+        rg = (RadioGroup)findViewById(R.id.radioGroup);
         List<String> meals = new ArrayList<>();
         meals.add("Options:");
         meals.add("Egg Rolls");
@@ -54,6 +57,9 @@ CheckBox confirm;
         meals.add("Manchurian");
         meals.add("Spring Roll");
         meals.add("Tortilla");
+
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, meals);
         meal.setAdapter(adapter);
         meal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,6 +95,7 @@ CheckBox confirm;
             }
         });
 
+
         //Seekbar Position
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -109,6 +116,7 @@ CheckBox confirm;
             }
         });
 
+
     }
 
 
@@ -116,6 +124,12 @@ CheckBox confirm;
 
 
     public void submit(View view) {
+
+        //Using validations
+        if(meal.getSelectedItem() != null || pval == 0 || rg.getCheckedRadioButtonId() == -1 ){
+            Toast.makeText(this, "All Fields Required.",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     //calculating total price for order including tax
@@ -148,4 +162,6 @@ CheckBox confirm;
 
 
     }
+
+
 }
