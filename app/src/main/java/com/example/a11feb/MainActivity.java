@@ -96,6 +96,7 @@ RadioGroup rg;
         });
 
 
+
         //Seekbar Position
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -116,7 +117,6 @@ RadioGroup rg;
             }
         });
 
-
     }
 
 
@@ -126,10 +126,11 @@ RadioGroup rg;
     public void submit(View view) {
 
         //Using validations
-        if(meal.getSelectedItem() != null || pval == 0 || rg.getCheckedRadioButtonId() == -1 ){
+        if(meal.getSelectedItem() != null || pval == 0 || rg.getCheckedRadioButtonId() == -1 || confirm.isChecked() ==false){
             Toast.makeText(this, "All Fields Required.",
                     Toast.LENGTH_SHORT).show();
         }
+
     }
 
     //calculating total price for order including tax
