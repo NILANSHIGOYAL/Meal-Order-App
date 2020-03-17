@@ -42,6 +42,7 @@ CheckBox confirm;
         submit1 = (Button) findViewById(R.id.button2);
         confirm = (CheckBox) findViewById(R.id.checkBox);
         List<String> meals = new ArrayList<>();
+        meals.add("Options:");
         meals.add("Egg Rolls");
         meals.add("Chowmein");
         meals.add("Nachos");
@@ -60,7 +61,23 @@ CheckBox confirm;
                 if (meal.getSelectedItem().toString().equals("Egg Rolls")) {
                     e1.setText("10");
                 } else if (meal.getSelectedItem().toString().equals("Chowmein")) {
+                    e1.setText("16");
+                }else if (meal.getSelectedItem().toString().equals("Nachos")) {
+                    e1.setText("8");
+                } else if (meal.getSelectedItem().toString().equals("Burger")) {
+                    e1.setText("5");
+                }else if (meal.getSelectedItem().toString().equals("Momos")) {
                     e1.setText("20");
+                }else if (meal.getSelectedItem().toString().equals("Pizza")) {
+                    e1.setText("23");
+                }else if (meal.getSelectedItem().toString().equals("Pav Bhaji")) {
+                    e1.setText("25");
+                }else if (meal.getSelectedItem().toString().equals("Manchurian")) {
+                    e1.setText("10");
+                }else if (meal.getSelectedItem().toString().equals("Spring Roll")) {
+                    e1.setText("9");
+                }else if (meal.getSelectedItem().toString().equals("Tortilla")) {
+                    e1.setText("2");
                 }
             }
 
@@ -70,6 +87,27 @@ CheckBox confirm;
 
             }
         });
+
+        //Seekbar Position
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int pval =0 ;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                pval = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast toast = Toast.makeText(getApplicationContext(),pval+"/"+seekbar.getMax(), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
     }
 
 
