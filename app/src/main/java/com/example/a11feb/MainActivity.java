@@ -26,6 +26,7 @@ SeekBar seekbar;
 RadioButton r1,r2,r3;
 Button calculate1,submit1;
 CheckBox confirm;
+    int pval =0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +91,7 @@ CheckBox confirm;
 
         //Seekbar Position
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int pval =0 ;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 pval = progress;
@@ -117,7 +118,34 @@ CheckBox confirm;
     public void submit(View view) {
     }
 
-
+    //calculating total price for order including tax
     public void calculate(View view) {
+       //getting price
+        String string_price = e1.getText().toString();
+        int finalPrice = Integer.parseInt(string_price);
+        //getting quantity
+        int quantity = pval;
+        //tax
+        double tax = 0.13;
+        //adding tip
+        double tip = 0.0;
+        if(r1.isChecked()){
+            tip = 0.10;
+        }else if(r2.isChecked()){
+            tip = 0.20;
+        }else if(r3.isChecked()){
+            tip = 0.30;
+        }
+
+        double totalprice1 = (finalPrice * quantity ) +(tip *finalPrice);
+        double calculated_tax = totalprice1 *tax;
+        double final_Price = totalprice1 +calculated_tax;
+
+        Toast.makeText(getApplicationContext(), "Final Price is:" + final_Price, Toast.LENGTH_SHORT).show();
+        //displaying final price in edit text
+        String finalprice = Double.toString(final_Price);
+        e2.setText(finalprice);
+
+
     }
 }
