@@ -1,15 +1,15 @@
 package com.example.a11feb;
 
-public class order {
+public class Order {
     private long orderId;
     private String meal_name;
-    private int price;
-    private int quantity;
-    private double tip;
-    private double tax;
-    private double cost;
+    private String price;
+    private String quantity;
+    private String tip;
+    private String tax;
+    private String cost;
 
-    public order(long orderId, String meal_name, int price, int quantity, double tip, double cost, double tax){
+    public Order(long orderId, String meal_name, String price, String quantity, String tip, String cost, String tax){
         this.orderId =orderId;
         this.meal_name=meal_name;
         this.price=price;
@@ -19,7 +19,7 @@ public class order {
         this.cost=cost;
     }
 
-    public order(){
+    public Order(){
 
     }
     public long getOrderId() {
@@ -29,40 +29,51 @@ public class order {
     public void setOrderId(long orderId) {
         this.orderId = orderId;
     }
-    public String getMealName(){
+    public String getMealName()
+    {
         return meal_name;
     }
     public void setMealName(String meal_name) {
+
         this.meal_name = meal_name;
     }
-    public int getPrice(){
+    public String getPrice(){
+
         return price;
     }
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
-    public int getQuantity(){
+    public String getQuantity()
+    {
         return quantity;
     }
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity)
+    {
         this.quantity = quantity;
     }
-    public double getTip(){
+    public String getTip(){
+
         return tip;
     }
-    public void setTip(double tip) {
+    public void setTip(String tip)
+    {
         this.tip = tip;
     }
-    public double getTax(){
+    public String getTax(){
+
         return tax;
     }
-    public void setTax(double tax) {
+    public void setTax(String tax) {
+
         this.tax= tax;
     }
-    public double getCost(){
+    public String getCost(){
+
         return cost;
     }
-    public void setCost(double cost) {
+    public void setCost(String cost) {
+
         this.cost= cost;
     }
 

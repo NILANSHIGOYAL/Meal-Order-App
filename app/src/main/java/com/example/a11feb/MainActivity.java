@@ -20,7 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
+    OrderDBHandler mDatabase;
 Spinner meal;
 EditText e1,e2;
 SeekBar seekbar;
@@ -58,7 +59,7 @@ RadioGroup rg;
         meals.add("Spring Roll");
         meals.add("Tortilla");
 
-
+        mDatabase = new OrderDBHandler(this);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, meals);
         meal.setAdapter(adapter);
@@ -95,8 +96,6 @@ RadioGroup rg;
             }
         });
 
-
-
         //Seekbar Position
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -118,18 +117,48 @@ RadioGroup rg;
         });
 
     }
-
-
-
-
-
     public void submit(View view) {
 
         //Using validations
-        if(meal.getSelectedItem() != null || pval == 0 || rg.getCheckedRadioButtonId() == -1 || confirm.isChecked() ==false){
+        if(meal.getSelectedItem() == null || pval == 0 || rg.getCheckedRadioButtonId() == -1 || confirm.isChecked() ==false){
             Toast.makeText(this, "All Fields Required.",
                     Toast.LENGTH_SHORT).show();
         }
+        String mealName = meal.getSelectedItem().toString();
+        int price = Integer.parseInt(e1.getText().toString());
+        int quantity = pval;
+        Double tip = 0.0;
+        switch (rg.getCheckedRadioButtonId()) {
+            case R.id.radioButton4:
+                tip = 0.10;
+                break;
+            case R.id.radioButton5:
+                tip = 0.20;
+                break;
+            case R.id.radioButton6:
+                tip = 0.30;
+                break;
+            default:
+                break;
+        }
+        Double tax = 0.13;
+        Double cost = Double.parseDouble(e2.getText().toString());
+
+
+        if ( mDatabase.addOrder(mealName, price,quantity,tip,tax,cost)){
+
+            Toast.makeText(this, "Order added", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,Main2Activity.class);
+            startActivity(intent);
+        }
+
+
+        else
+
+            Toast.makeText(this, "Order not added", Toast.LENGTH_SHORT).show();
+
+
+
 
     }
 
