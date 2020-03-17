@@ -59,7 +59,7 @@ CheckBox confirm;
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (meal.getSelectedItem().toString().equals("Egg Rolls")) {
                     e1.setText("10");
-                } else if (meal.getSelectedItem().toString().equals("B")) {
+                } else if (meal.getSelectedItem().toString().equals("Chowmein")) {
                     e1.setText("20");
                 }
             }
