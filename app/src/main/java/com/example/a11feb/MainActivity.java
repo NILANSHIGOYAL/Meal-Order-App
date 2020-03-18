@@ -185,7 +185,6 @@ RadioGroup rg;
         double calculated_tax = totalprice1 *tax;
         double finalPrice1 = totalprice1 +calculated_tax;
 
-        Toast.makeText(getApplicationContext(), "Final Price is:" + finalPrice1, Toast.LENGTH_SHORT).show();
         //displaying final price in edit text
         String finalcost = Double.toString(finalPrice1);
         e2.setText(finalcost);
