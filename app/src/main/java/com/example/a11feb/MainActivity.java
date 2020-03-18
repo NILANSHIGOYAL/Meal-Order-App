@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -28,6 +29,7 @@ SeekBar seekbar;
 RadioButton r1,r2,r3;
 Button calculate1,submit1;
 CheckBox confirm;
+ImageView iv;
 RadioGroup rg;
     int pval =0 ;
 
@@ -44,6 +46,7 @@ RadioGroup rg;
         r3 = (RadioButton) findViewById(R.id.radioButton6);
         calculate1 = (Button) findViewById(R.id.button);
         submit1 = (Button) findViewById(R.id.button2);
+        iv = (ImageView)findViewById(R.id.imageView);
         confirm = (CheckBox) findViewById(R.id.checkBox);
         rg = (RadioGroup)findViewById(R.id.radioGroup);
         List<String> meals = new ArrayList<>();
@@ -68,12 +71,15 @@ RadioGroup rg;
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (meal.getSelectedItem().toString().equals("Egg Rolls")) {
                     e1.setText("10");
+                    iv.setImageResource(R.drawable.p1);
                 } else if (meal.getSelectedItem().toString().equals("Chowmein")) {
                     e1.setText("16");
+                    iv.setImageResource(R.drawable.maxresdefault);
                 }else if (meal.getSelectedItem().toString().equals("Nachos")) {
                     e1.setText("8");
                 } else if (meal.getSelectedItem().toString().equals("Burger")) {
                     e1.setText("5");
+                    iv.setImageResource(R.drawable.burger);
                 }else if (meal.getSelectedItem().toString().equals("Momos")) {
                     e1.setText("20");
                 }else if (meal.getSelectedItem().toString().equals("Pizza")) {
